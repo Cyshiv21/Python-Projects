@@ -11,37 +11,6 @@ def save_contacts(contacts):
     with open("contacts.json", "w") as file:
         json.dump(contacts, file, indent=4)
 
-def add_contact(name:str, contact_num : int, email:str):
-    contacts = load_contacts()
-    name = input("Enter your name: ").strip()
-    if name == " ":
-        print("your name cannot be null try again.")
-    else:
-        contact_num = input("Enter your contact number: ").strip()
-        if contact_num == " ":
-            print("your contact cannot be null try again.")
-        elif not contact_num.isdigit():
-            print("Contact Number can only be numbers.")
-        else:
-            email = input("Enter your email address = ").strip()
-            if email == " ":
-                print("your email cannot be null try again.")
-        
-        for contact in contacts:
-            if contact["contact_num"] == contact:
-                print(f'this contact already exists!')
-            return
-
-    new_contact = {
-        "name" : name,
-        "contact" : contact_num,
-        "email"  : email
-    }
-    contacts.append(new_contact)
-
-    save_contacts(contacts)
-    
-    print("Success!! Your contact has been saved")
 def add_contact():
     contacts = load_contacts()
 
